@@ -22,8 +22,9 @@ if(giroBtn) {
     const gyroAvailable = await GyroControl.isAvailable();
 
     if (shouldQueryPermission && !gyroAvailable) {
-      const permissionGranted = await GyroControl.requestSensorPermission();
-      alert(permissionGranted);
+       GyroControl.requestSensorPermission().then(response => {
+          console.log(response);
+      });
 
     }
   });
