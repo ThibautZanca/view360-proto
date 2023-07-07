@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://naver.github.io/egjs-view360/release/latest/css/view360.min.css">
+    <style>
+        html, body{
+            padding:0;
+            margin: 0;
+            overflow: hidden;
+        }
+      #camera{
+
+          width:100vw;
+          height:100vh;
+          position:absolute;
+
+      }
+      .view360-container {
+          aspect-ratio: 2;
+      }
+      #ui{
+          padding:20px;
+          width:100vw;
+          height:100vw;
+          position:absolute;
+          top:0;
+          left:0;
+          pointer-events: none;
+      }
+      .view360-hotspot{
+           align-items: center;
+          background-color: #00cc00;
+          border-radius: 30px;
+          color: #000;
+          cursor: pointer;
+          height: 30px;
+          justify-content: center;
+          width: 30px;
+      }
+      #giro-btn{
+          pointer-events: auto;
+      }
+      .view360-canvas{
+          background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+  <!--video autoplay="true" id="camera">
+
+  </video-->
+
+  <div  id="viewer" class="view360-container " >
+    <canvas class="view360-canvas"></canvas>
+    <!-- Hotspot container -->
+    <div class="view360-hotspots">
+      <!-- Hotspots -->
+      <div class="view360-hotspot" data-yaw="0" data-pitch="0">1</div>
+      <!-- You can use either Yaw(Y-axis rotation), Pitch(X-axis rotation) for hotspot position -->
+      <div class="view360-hotspot" data-yaw="-90" data-pitch="0">2</div>
+      <!-- You can also use direct 3D coordinates. -->
+      <div class="view360-hotspot" data-position="0 1 0">3</div>
+      <!-- View 360 only places the hotspot in the appropriate location. -->
+      <!-- You can decorate your hotspots however you want! -->
+      <div class="view360-hotspot" data-yaw="-90" data-pitch="-90">
+        <div>It doesn't matter what content you put inside the hotspot or what size you have.</div>
+        <img src="https://adeliom.com/app/uploads/2023/02/branding-blog-couverture.jpg" alt="Of course, you can display images." />
+      </div>
+    </div>
+  </div>
+
+  <div id="ui">
+    <button id="giro-btn">Gyro</button>
+  </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
