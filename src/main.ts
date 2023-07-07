@@ -18,12 +18,12 @@ const shouldQueryPermission = iOS;
 const giroBtn = document.querySelector("#giro-btn");
 
 if(giroBtn) {
-  giroBtn.addEventListener('click', async () => {
-    const gyroAvailable = await GyroControl.isAvailable();
+  giroBtn.addEventListener('click',  () => {
+    //const gyroAvailable = await GyroControl.isAvailable();
 
-    if (shouldQueryPermission && !gyroAvailable) {
-       GyroControl.requestSensorPermission().then(response => {
-          console.log(response);
+    if (shouldQueryPermission ) {
+      GyroControl.requestSensorPermission().then(available => {
+        alert(available);
       });
 
     }
